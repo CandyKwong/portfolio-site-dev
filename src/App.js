@@ -5,8 +5,21 @@ import PageAbout from "./pages/PageAbout";
 import PageWorks from "./pages/PageWorks";
 import Footer from "./components/Footer";
 import PageIndividualWork from "./pages/PageIndividualWork";
+import Loading from '../src/components/Loading';
+import { useState, useEffect } from "react";
 
 function App(){
+  const[isLoading, setIsLoading] = useState(true);
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  if(isLoading){
+    return <Loading />;
+  }
   return(
     
   
