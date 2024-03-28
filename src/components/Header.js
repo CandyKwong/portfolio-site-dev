@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 
 function Header(){
     return(
-        <header>
+        <header id="masthead">
             <nav className='nav'>
                 <Nav />
 

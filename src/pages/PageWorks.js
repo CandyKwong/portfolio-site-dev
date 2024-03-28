@@ -9,7 +9,7 @@ const PageWorks = () => {
       const [mediaData, setMediaData] = useState([]);
 
       const mediaAllWorks = mediaData.find(data=>  (data.id === 185))?.source_url
-      console.log("MEDIAWORKS", mediaAllWorks)
+      
 
       useEffect(() => {
         getMedia()
@@ -35,22 +35,25 @@ const PageWorks = () => {
       const allWorksData1 = allWorksData?.[1]?.acf;
       const allWorks = allWorksData?.acf?.all_works;
       
-      console.log("WORKS", allWorks)
+    
 
 
     return(
-        <div>
+        <div class="works-wrapper">
             <h1>All Works</h1>
 
             {allWorks && allWorks.map(all_work=>(
-            <div>
+            <div className="works-cards">
+              <article className="works-single-card">
                 <img src={all_work.works_image.url} alt={all_work.works_image.alt}/>
-                <p>{all_work.works_title}</p>
+                <h2>{all_work.works_title}</h2>
                 <p>{all_work.toolkit}</p>
+                <a className="view-work-button" ><Link to="/individualworks">View Work</Link></a>
+              </article>
             </div>   
             ))}
 
-            <div ><Link to="/individualworks">View Work</Link></div>
+            {/* <a className="view-work-button" ><Link to="/individualworks">View Work</Link></a> */}
         </div>
     );
 }

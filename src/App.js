@@ -17,15 +17,29 @@ function App(){
     }, 2000);
   }, []);
 
-  if(isLoading){
-    return <Loading />;
-  }
+ 
   return(
     
   
     <>
+   {isLoading?
+   <Loading/>
    
-      <Router>
+   :
+   <Router>
+   <main id="main">
+     <Header />
+     <Routes>
+       <Route path='/' element={<PageHome/>}/>
+       <Route path='/about' element={<PageAbout/>}/>
+       <Route path='/works' element={<PageWorks/>}/>
+       <Route path='/individualworks' element={<PageIndividualWork/>}/>
+     </Routes>
+   </main>
+  <Footer/>
+   </Router>
+  }
+      {/* <Router>
       <main>
         <Header />
         <Routes>
@@ -36,7 +50,7 @@ function App(){
         </Routes>
       </main>
      <Footer/>
-      </Router>
+      </Router> */}
    </>
   )
 }
