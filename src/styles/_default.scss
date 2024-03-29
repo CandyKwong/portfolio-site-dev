@@ -1,39 +1,44 @@
 // Default Styles
 @use 'variables' as *;
-body {
-    font-family: $font;
-    margin: 0;
-    $body-background: #f5f3ef;
+@use 'typography' as *;
+p, li, a{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
+// body {
+//     font-family: $font;
+//     margin: 0;
+//     $body-background: #f5f3ef;
+// }
 
-h1,h2,h3,h4,h5,h6 {
-    text-transform: uppercase;
-}
+// h1,h2,h3,h4,h5,h6 {
+//     text-transform: uppercase;
+// }
 
-.main-wrapper {
-    margin: 0 auto;
-    min-height: 100vh;
-    margin-top: 4rem;
+// .main-wrapper {
+//     margin: 0 auto;
+//     min-height: 100vh;
+//     margin-top: 4rem;
     
-    // @media (width > $tablet-large) {
-    //     margin: 0 auto;
-    // }
-}
-a:hover,
-a:focus{
+//     // @media (width > $tablet-large) {
+//     //     margin: 0 auto;
+//     // }
+// }
+// a:hover,
+// a:focus{
 
-    color: $theme-yellow;
-    background-color: black
-}
+//     color: $theme-yellow;
+//     background-color: black
+// }
 
-a:active{
-    color: red;
-}
+// a:active{
+//     color: red;
+// }
 
-p{
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    @media (min-width: 77.88em) {
-        line-height: 2rem;
-    }
-}
+// p{
+//     font-size: 1.2rem;
+//     line-height: 1.5rem;
+//     @media (min-width: 77.88em) {
+//         line-height: 2rem;
+//     }
+// }

@@ -1,0 +1,77 @@
+// styles.scss
+
+.techstack-section {
+    // Styles for the filter buttons
+    .filter-section {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+  
+        .filter-buttons {
+          cursor: pointer;
+          padding: 10px;
+          margin-right: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+  
+          &.active {
+            background-color: #007bff;
+            color: white;
+          }
+        }
+      }
+    }
+  
+    // Styles for the skills container
+    .skills-container {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+  
+        &.hidden {
+          display: none;
+        }
+  
+        li {
+          padding: 10px;
+          margin: 5px 0;
+          background-color: #f4f4f4;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .facts-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  dl {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  dt {
+    font-weight: bold;
+    cursor: pointer; /* Change cursor to indicate interaction */
+  }
+  
+  dd {
+    display: none; /* Hide answer by default */
+    padding-left: 20px;
+  }
+  
+  /* Show answer when hovering over question */
+  dt:hover + dd {
+    display: block;
+  }
+  
+  /* Style for answer when it's visible */
+  dd {
+    color: #333;
+  }
+  
+  

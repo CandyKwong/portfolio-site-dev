@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { getMedia, getSkill, getAbout } from '../utilities/api';
+import Loading from '../components/Loading';
+
+
 
 const PageAbout = () => {
 
@@ -9,6 +12,9 @@ const PageAbout = () => {
     const [aboutData, setAboutData] = useState([]);
     const [mediaData, setMediaData] = useState([]);
     const [skillsData, setSkillsData] = useState([]);
+    const[isLoading, setIsLoading] = useState(true);
+    const [expandFact, setExpandFact] = useState(null);
+    const [selectFilter, setSelectFilter] = useState(0);
    
     
 
@@ -17,6 +23,7 @@ const PageAbout = () => {
         .then((data) => {
          
           setMediaData(data)
+          setIsLoading(false)
         })
         .catch((error)=>{
           alert(error);
@@ -30,6 +37,7 @@ const PageAbout = () => {
         getAbout()
         .then((data) => {
           setAboutData(data)
+          setIsLoading(false)
         })
         .catch((error)=>{
           alert(error);
@@ -48,11 +56,24 @@ const PageAbout = () => {
         });
       }, [])
 
+      const toggleFact = (index) => {
+        if (expandFact === index){
+          setExpandFact(null);
+        }else{
+          setExpandFact(index);
+        }
+      };
+
 
 
    
 
 return(
+  <>
+  {isLoading? 
+  <Loading/>
+  
+  :
     
         <div className="about-wrapper">
           <div className="bio-wrapper">
@@ -64,12 +85,15 @@ return(
             <h2>Skills</h2>
               <div className="filter-section">
                 <ul>
-                  <li className="filter-buttons">Development Skills</li>
+                  {/* <li className="filter-buttons">Development Skills</li>
                   <li className="filter-buttons">Design Skills</li>
-                  <li className="filter-buttons">Soft Skills</li>
+                  <li className="filter-buttons">Soft Skills</li> */}
+                  <li className={`filter-buttons ${selectFilter[0] === 0 ? 'active' : ''}`} onClick={() => setSelectFilter([0])}>Development Skills</li>
+                  <li className={`filter-buttons ${selectFilter[0] === 1 ? 'active' : ''}`} onClick={() => setSelectFilter([1])}>Design Skills</li>
+                  <li className={`filter-buttons ${selectFilter[0] === 2 ? 'active' : ''}`} onClick={() => setSelectFilter([2])}>Soft Skills</li>
                 </ul>
               </div>
-              <div class="skills-container">
+              {/* <div class="skills-container">
                 {skillsData?.[0]?.acf?.skills.map(skill=>
                 <ul>
                     <li>{skill}</li>
@@ -87,15 +111,25 @@ return(
                     <li>{skill}</li>
                 </ul>
                 )} 
-              </div>
+              </div> */}
+               <div className="skills-container">
+                            {skillsData?.map((skillSet, index) => (
+                                <ul key={index} className={selectFilter[0] !== index ? 'hidden' : ''}>
+                                    {skillSet.acf.skills.map((skill, skillIndex) => (
+                                        <li key={skillIndex}>{skill}</li>
+                                    ))}
+                                </ul>
+                            ))}
+                        </div>
           </section> 
             
           <section>
-            {aboutData?.acf?.['fun_facts'].map(fact=>
-            <div className="facts-wrapper">
+            {aboutData?.acf?.['fun_facts'].map((fact, index)=>
+            <div className="facts-wrapper" key={index}>
             <dl>
-                <dt>{fact.question}</dt>
-                <dd>{fact.answer}</dd>
+                <dt onClick={()=> toggleFact(index)}>{fact.question}</dt>
+                {expandFact === index && <dd>{fact.answer}</dd>}
+                {/* <dd>{fact.answer}</dd> */}
             </dl>
             </div>
             )}
@@ -118,8 +152,8 @@ return(
             </div>
           </section>
         </div>
-  
-
+}
+  </>
     
 )}
 

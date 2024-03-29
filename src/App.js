@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import PageIndividualWork from "./pages/PageIndividualWork";
 import Loading from '../src/components/Loading';
 import { useState, useEffect } from "react";
+import './styles/styles.scss';
 
 function App(){
   const[isLoading, setIsLoading] = useState(true);

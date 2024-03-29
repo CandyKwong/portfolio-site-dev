@@ -1,7 +1,11 @@
 //import
 @use 'variables';
 @use 'default';
+@use 'typography';
+@use 'header';
+@use 'nav';
 
 
 //main
 @use 'home';
+@use 'about';

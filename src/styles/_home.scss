@@ -1,2 +1,32 @@
 // HomePage Style
 @use 'variables' as *;
+@use 'typography' as *;
+@use 'default' as *;
+body{
+    background-color: $body-background;
+}
+.self-intro-section h1{
+    font-family: 'Gelasio', serif;
+    font-weight: 600;
+    font-size: 3rem;
+}
+h2{
+    font-family: 'Gelasio', serif;
+    font-weight: 400;
+}
+.right-arrow-icon:hover img{
+    filter: invert(74%) sepia(55%) saturate(590%) hue-rotate(333deg) brightness(99%) contrast(92%);
+    
+    
+}
+.home-memoji img{
+    width: 17rem;
+}
+.down-arrow-icon img{
+    width: 4.5rem;
+}
+// p{
+//     font-family: 'Roboto';
+//     font-weight: 400;
+// }
+
