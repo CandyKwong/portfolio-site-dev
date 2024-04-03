@@ -1,4 +1,10 @@
 @use 'variables' as *;
+.loading-portfolio-works{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .works-wrapper {
@@ -51,7 +57,11 @@
     .works-single-card{
         min-width: 250px;
     }
+    #main{
+        overflow-x: hidden;
+    }
 }
+
 
 
 

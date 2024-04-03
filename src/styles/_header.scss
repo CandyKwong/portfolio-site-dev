@@ -1,6 +1,22 @@
-.home-logo img{
-    width: 5rem;
-    height: 10rem;
-    
+@use 'variables' as *;
 
+.logo-nav{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
 }
+
+.home-logo img{
+    display: flex;
+    width: 3.5rem;
+    padding: 1rem;
+    // margin: 1rem 2rem;
+    // height: 10rem;
+}
+@media screen and (min-width: $tablet-large){
+    .logo-nav{
+        background-color: #EDE9E3;
+    }
+    
+}
+

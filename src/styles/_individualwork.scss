@@ -1,87 +1,129 @@
 @use 'variables' as *;
+.loading-portfolio-individualworks{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .individual-work-wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    max-width: 62.5rem;
+    margin: auto;
 
     h1{
         font-family: "Gelasio", serif;
         font-weight: 600;
-    }
-    
-    .mockup-screens img{
-        max-width: 100%;
-        
-    }
-
-    .works-roles-toolkit-wrapper{
-        
        
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        @media screen and (min-width: $desktop-small) {
-            .works-roles-toolkit-wrapper {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-        
-            .works-roles-toolkit-wrapper h2,
-            .works-roles-toolkit-wrapper p {
-                flex: 0 0 48%; 
-                margin: 0;
-            }
-        }
     }
-    .work-accordian{
-        display: flex;
-        flex-direction: column;
-    }
-    .work-highlight{
-        margin: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-wrap: wrap;
-
-        @media screen and (min-width: $tablet-large){
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            align-items: center;
-            padding: 0.50rem;
-        }
-    }
-
-    .highlights-img img{
-        width: 20rem;
-        
-    }
-    .work-accordian-title{
-        border-bottom: 1px solid #ccc;
-        padding: 10px 0;
-    }
-    .view-site-button{
-        a{
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            width: 7rem;  
-            border-radius: 50%;
-            padding: 0.75rem;
-            background-color: #D4ABA7;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            margin: 0.25rem auto;
-        }
-    }
-   
-   
 }
+    
+.mockup-screens img{
+    // max-width: 1000px;
+    width: 30rem;
+    border-radius: 0.50rem;
+
+    margin: auto;
+    
+}
+    @media screen and (min-width: $tablet-large){
+        .mockup-screens img{
+            // margin: 1rem 4rem;
+           
+        }
+    }
+
+
+
+    .work-overview-container .work-roles-toolkit-wrapper{
+        display: flex;
+        align-items: center;
+        // gap: 3rem;
+        justify-content: space-between;
+       
+    }
+    @media screen and (min-width: $tablet-large){
+        .work-roles-toolkit h1{
+            text-align: center;
+        }
+    }
+    @media screen and (min-width: $tablet-large){
+        .work-overview-container .work-roles-toolkit-wrapper{
+            // gap: 5rem;
+            justify-content: space-around;
+            
+           
+        }
+    }
+
+
+
+
+.work-accordian{
+    display: flex;
+    flex-direction: column;
+}
+.work-highlight{
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: $tablet-large){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.50rem;
+    }
+}
+
+.highlights-img img{
+    width: 20rem;
+    
+}
+.work-accordian-title{
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.view-site-button{
+    a{
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        width: 7rem;  
+        border-radius: 50%;
+        padding: 0.75rem;
+        background-color: #D4ABA7;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        margin: 0.25rem auto;
+    }
+}
+   
+   
+
+@media screen and (min-width: $desktop-small){
+    .works-roles-toolkit-wrapper{
+        display: grid;
+    }
+}
+
+
+@media screen and (max-width: $mobile){
+    #main{
+        overflow-x: hidden;
+    }
+}
+@media screen and (max-width: $tablet-large) {
+    #main {
+        overflow-x: hidden;
+    }
+}
+
 

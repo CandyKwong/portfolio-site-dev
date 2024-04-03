@@ -38,22 +38,23 @@ nav a:hover,
 
 @media (min-width: $tablet-large){
     nav{
+        border: none;
     
         
 position: static;
 
         ul{
-          
+          text-align: end;
         }
 
   
     }
 
     header{
-        text-align: end;
+        // text-align: end;
         position: sticky;
         top: 0;
-        border: none;
+        // border: none;
         width: 100%;
         width: auto;
         padding: 0;

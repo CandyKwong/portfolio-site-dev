@@ -44,7 +44,7 @@ const PageWorks = () => {
     return(
       <>
       {isLoading? 
-      <Loading/>
+      <Loading pageName="works"/>
       
       :
         <div class="works-wrapper">

@@ -68,7 +68,7 @@ const PageAbout = () => {
 return(
   <>
   {isLoading? 
-  <Loading />
+  <Loading pageName="about"/>
   
   :
     

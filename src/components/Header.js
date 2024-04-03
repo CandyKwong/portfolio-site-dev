@@ -6,11 +6,12 @@ import { Link } from 'react-router-dom';
 function Header(){
     return(
         <header id="masthead">
-            <Link to="/" className="home-logo">
-            <img src={Logo} alt="Logo"/>
-            </Link>
-           
-                <Nav />
+            <div className="logo-nav">
+                <Link to="/" className="home-logo">
+                <img src={Logo} alt="Logo"/>
+                </Link>
+                    <Nav />
+            </div>
 
           
         </header>

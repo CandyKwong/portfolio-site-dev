@@ -2,16 +2,12 @@
 @use 'default' as *;
 
 .loading-portfolio-about{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-// .loading-portfolio-app{
-//     height: '100vh';
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
+
 .about-wrapper {
     display: flex;
     flex-direction: column;
@@ -25,20 +21,26 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 1rem;
+        margin: auto;
 
         img{
-            width: 100%;
-            
-            margin: 0.50rem;
+            // width: 100%;
+            border-radius: 0.50rem;
+            margin: 0.50rem auto;
+            width: 25rem;
+           
         }
     }
     @media screen and (min-width: 710px){
         .about-collage-section{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
 
+            img{
+              margin: 0.50rem auto;
+              width: 20rem;
+            }
           
         }
     }
@@ -52,12 +54,17 @@
    
 
     img{
-        width: 100%;
+        // width: 100%;
+        margin: 3rem auto;
+        width: 25rem;
         max-width: 100%;
+        border-radius: 0.50rem;
     }
-    @media screen and (min-width: $tablet-small){
+    @media screen and (min-width: $tablet-large){
         .bio-wrapper img{
-            max-width: 80%;
+            // max-width: 80%;
+            // margin: 3rem auto;
+            // width: 30rem;
         }
     }
    
@@ -210,6 +217,11 @@ dd{
    }
 }
 
+}
+@media screen and (max-width: $mobile){
+  #main{
+      overflow-x: hidden;
+  }
 }
 
   

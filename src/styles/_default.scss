@@ -1,9 +1,7 @@
 // Default Styles
 @use 'variables' as *;
 @use 'typography' as *;
-// #main{
-//     padding-bottom: 5rem;
-// }
+
 
 h1, h2{
     font-family: 'Gelasio', serif;
@@ -38,5 +36,7 @@ dd{
 p{
     line-height: 1.75rem;
 }
+
+
 
 

@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { getWork, getMedia } from '../utilities/api';
 import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 const PageIndividualWork = () => {
     const [workData, setWorkData] = useState([]);
     const [mediaData, setMediaData] = useState([]);
     const [expandWorkInfo, setExpandWorkInfo] = useState(null);
+    const[isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getWork()
             .then((data) => {
                 setWorkData(data);
+                setIsLoading(false)
             })
             .catch((error) => {
                 alert(error);
@@ -21,6 +24,7 @@ const PageIndividualWork = () => {
         getMedia()
             .then((data) => {
                 setMediaData(data);
+                setIsLoading(false)
             })
             .catch((error) => {
                 alert(error);
@@ -32,6 +36,11 @@ const PageIndividualWork = () => {
     };
 
     return (
+        <>
+        {isLoading? 
+        <Loading pageName="individualworks"/>
+        
+        :
         <div className="individual-work-wrapper">
             <article className="indivdual-work-container">
                 <section className="work-overview-container">
@@ -41,10 +50,14 @@ const PageIndividualWork = () => {
                     <div className="work-roles-toolkit">
                         <h1>{workData?.acf?.works_title}</h1>
                         <div className="work-roles-toolkit-wrapper">
-                            <h2>{workData?.acf?.roles_title}</h2>
-                            <p>{workData?.acf?.roles}</p>
-                            <h2>{workData?.acf?.toolkit_title}</h2>
-                        <   p>{workData?.acf?.toolkit}</p>
+                            <div className="work-roles-container">
+                                <h2>{workData?.acf?.roles_title}</h2>
+                                <p>{workData?.acf?.roles}</p>
+                            </div>
+                            <div className="work-toolkit-container">
+                                <h2>{workData?.acf?.toolkit_title}</h2>
+                                <p>{workData?.acf?.toolkit}</p>
+                           </div>
                         </div>
                     </div>
                     <div className="work-overview">
@@ -105,6 +118,8 @@ const PageIndividualWork = () => {
                 </div>
             </article>
         </div>
+    }
+        </>
     );
 };
 
