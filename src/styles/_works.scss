@@ -1,0 +1,77 @@
+@use 'variables' as *;
+
+
+.works-wrapper {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start;
+    padding: 3rem 1rem;
+
+    h1{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+.works-single-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(212, 178, 167, 0.7) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    width: 18rem;
+
+    img{
+        width: 100%;
+    }
+
+    h2,
+    p{
+        text-align: center;
+    }
+
+    a{
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        width: 7rem;  
+        border-radius: 50%;
+        padding: 0.25rem;
+        background-color: #D4ABA7;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        margin: 0.25rem auto;
+    }
+}
+@media screen and (max-width: $mobile){
+    .works-single-card{
+        min-width: 250px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+    
+
+
+
+
+
+

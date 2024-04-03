@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import Logo from '../assets/CK-logo.svg';
+import Logo from '../assets/CK-logo-header.svg';
 import { Link } from 'react-router-dom';
 
 
@@ -9,10 +9,10 @@ function Header(){
             <Link to="/" className="home-logo">
             <img src={Logo} alt="Logo"/>
             </Link>
-            <nav className='nav'>
+           
                 <Nav />
 
-            </nav>
+          
         </header>
     )
 }

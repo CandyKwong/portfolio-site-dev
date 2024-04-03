@@ -2,9 +2,77 @@
 @use 'variables' as *;
 @use 'typography' as *;
 @use 'default' as *;
+
 body{
     background-color: $body-background;
 }
+
+.loading-portfolio-home{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.50rem;
+   
+
+    @media screen and (min-width: $tablet-small){
+        .wrapper{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+    }
+}
+
+
+@media screen and (min-width: $desktop-small){
+
+    .home-abovefold-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 1rem;
+
+    }
+
+    .home-abovefold,
+    .home-memoji{
+        width: 100%;
+    }
+    .home-memoji{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+
+
+.home-abovefold{
+   
+    padding: 0.50rem;
+}
+
+
+
+
+.self-intro-section{
+   
+    padding: 0 5rem;
+    
+    
+}
+@media screen and (min-width: $tablet-small){
+    .self-intro-section{
+        padding: 0 1rem;
+    }
+}
+
 .self-intro-section h1{
     font-family: 'Gelasio', serif;
     font-weight: 600;
@@ -15,18 +83,132 @@ h2{
     font-weight: 400;
 }
 .right-arrow-icon:hover img{
-    filter: invert(74%) sepia(55%) saturate(590%) hue-rotate(333deg) brightness(99%) contrast(92%);
+    filter: invert(19%) sepia(35%) saturate(1054%) hue-rotate(288deg) brightness(150%) contrast(85%);
     
     
+}
+.home-memoji,
+.down-arrow-icon,
+.right-arrow-icon{
+    display: flex;
+    
+   
 }
 .home-memoji img{
     width: 17rem;
+    margin-top: -3rem;
+    
 }
 .down-arrow-icon img{
-    width: 4.5rem;
+    width: 5.5rem;
+    margin-left: 8.7rem;
+    margin-top: 2rem;
 }
-// p{
-//     font-family: 'Roboto';
-//     font-weight: 400;
-// }
+@media screen and (max-width: $tablet-small){
+    .home-memoji,
+    .down-arrow-icon,
+    .right-arrow-icon{
+        display: center;
+    }
+    
+}
+
+
+
+.featured-works-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    margin: 1rem;
+    padding: 1rem;
+   
+    .featured-works{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: rgba(212, 178, 167, 0.7) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        border-radius: 0.5rem;
+        margin: 1rem;
+        padding: 1rem;
+        width: 18rem;
+    }
+    .featured-works-title{
+        
+        margin-bottom: 1rem;
+    }
+    .featured-works-macbook img{
+        width: 100%;
+        width: 35rem;
+        margin: -3rem;
+       
+    }
+    .featured-works-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .featured-works-content{
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: -1rem;
+
+            h4{
+               
+                margin-bottom: 0.50rem;
+                margin: -0.05rem;
+            }
+
+            ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom:  1rem;
+            padding: 0;
+            }
+            li{
+               
+                margin: 0.75rem;
+            }
+
+            .right-arrow-icon img{
+                margin-left: 6.5rem;
+                width: 1.75rem;
+                margin-top: -8.75rem;
+            }
+           
+           
+            
+        }
+    
+      
+        
+    }
+    
+}
+
+
+
+.all-works-button{
+    display: inline-block;
+    border-radius: 50%;
+    padding: 1rem;
+    background-color: #D4ABA7;
+    transition: background-colour 0.3s ease;
+    cursor: pointer;
+    margin: 2rem auto;
+   
+
+}
+
+
+
+
+
+
 

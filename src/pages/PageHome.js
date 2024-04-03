@@ -1,12 +1,8 @@
 import { Link } from 'react-router-dom';
 import { getMedia, getHome } from '../utilities/api';
 import React, {useEffect, useState, useRef} from 'react';
-import arrowIcon from '../assets/arrow-down.svg';
 import arrowRightIcon from '../assets/arrow-right.svg';
-// import Loading from '../src/components/Loading';
 import Loading from '../components/Loading';
-
-
 
 
 
@@ -20,7 +16,6 @@ const PageHome = () => {
   const featuredWorks = homeData?.acf?.featured_works;
   const[isLoading, setIsLoading] = useState(true);
   const homeRef = useRef(null);
-
 
 
   useEffect(() => {
@@ -56,67 +51,72 @@ const PageHome = () => {
   
   return (
     <>
-   {isLoading? 
-   <Loading/>
-   
-   :
+     {isLoading? 
+  <Loading pageName="home"/>
+  
+  :
+  
    <div className="wrapper">
-     {/* <Loading/> */}
-   {/* <h1>Home</h1> */}
+  
   
 <section className="self-intro-section"> 
-  <h1>{homeData?.acf?.['self-introduction-one']}</h1>
-  <h2>{homeData?.acf?.['self-introduction-two']}</h2>
-  <h2>{homeData?.acf?.['self-introduction-three']}</h2>
+  <div className="home-abovefold-wrapper">
+    <div className="home-abovefold">
+      <h1>{homeData?.acf?.['self-introduction-one']}</h1>
+      <h2>{homeData?.acf?.['self-introduction-two']}</h2>
+      <h2>{homeData?.acf?.['self-introduction-three']}</h2>
+    </div>
+    
+    <figure className="home-memoji">
+      <img src={homeData?.acf?.memoji?.url} alt={homeData?.acf?.memoji?.alt}/>
+    </figure>
+  </div>
+
+    <div className="down-arrow-icon">
+    <img src={require('../assets/down-arrow2.gif')} alt="Down Arrow Icon" className="down-arrow-icon" onClick={scrollToSection} />
+    </div>
 </section>
-
-
-<figure className="home-memoji">
-  <img src={homeData?.acf?.memoji?.url} alt={homeData?.acf?.memoji?.alt}/>
-</figure>
-
-<div className="down-arrow-icon">
-{/* <img src={arrowIcon} alt="Arrow Icon" onClick={scrollToSection}/> */}
-<img src={require('../assets/down-arrow2.gif')} alt="Down Arrow Icon" className="down-arrow-icon" onClick={scrollToSection} />
-
-</div>
+  
 
 <section className="featured-works-wrapper" ref={homeRef}>
-<h3>{homeData?.acf?.works_heading}</h3>
+  <h3 className="featured-works-title">{homeData?.acf?.works_heading}</h3>
 
 
+  {featuredWorks && featuredWorks.map((featured_work, index)=>(
+  <div key={index} className="featured-works">
+    <article className="featured-works-cards">
+      <div className="featured-works-macbook">
+        <img src={featured_work.works_image.url} alt={featured_work.works_image.alt}/>
+      </div>
+      <div className="featured-works-info">
+        <div className="featured-works-content">
+          <h4>{featured_work.works_title}</h4>
+          <ul>
+            <li>{featured_work.works_toolkit}</li>
+          </ul>
+        
+          <Link to="/individualworks" className="right-arrow-icon">
+            <img src={arrowRightIcon} alt="Arrow Right Icon"/>
+          </Link>
+        </div>
+      </div>
+    </article>
 
-{featuredWorks && featuredWorks.map((featured_work, index)=>(
-<div key={index} className="featured-works">
-  <article className="featured-works-cards">
-    <img src={featured_work.works_image.url} alt={featured_work.works_image.alt}/>
-    <div>
-      <h4>{featured_work.works_title}</h4>
-      <ul>
-      <li>{featured_work.works_toolkit}</li>
-      </ul>
-      <Link to="/individualworks" className="right-arrow-icon">
-      <img src={arrowRightIcon} alt="Arrow Right Icon"/>
-      </Link>
-    </div>
-  </article>
+  
+  </div>
 
- 
-</div>
+  ))}
 
-))}
-
-{/* <div ><Link to="/works">All Works</Link></div> */}
-<a className="all-works-button"><Link to="/works">All Works</Link></a>
-</section>
- </div>
+  
+  <a className="all-works-button"><Link to="/works">All Works</Link></a>
+  </section>
+  </div>
 
 }
-   </>
-
+    </>
   
-  )}
-  
+    
+    )}
 
 
 export default PageHome;

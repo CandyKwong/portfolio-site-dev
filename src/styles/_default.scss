@@ -1,44 +1,42 @@
 // Default Styles
 @use 'variables' as *;
 @use 'typography' as *;
+// #main{
+//     padding-bottom: 5rem;
+// }
+
+h1, h2{
+    font-family: 'Gelasio', serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+}
+h3{
+    font-family: 'Gelasio', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+h4{
+    font-family: 'Gelasio', serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+
 p, li, a{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
-// body {
-//     font-family: $font;
-//     margin: 0;
-//     $body-background: #f5f3ef;
-// }
+dl{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+dd{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+p{
+    line-height: 1.75rem;
+}
 
-// h1,h2,h3,h4,h5,h6 {
-//     text-transform: uppercase;
-// }
 
-// .main-wrapper {
-//     margin: 0 auto;
-//     min-height: 100vh;
-//     margin-top: 4rem;
-    
-//     // @media (width > $tablet-large) {
-//     //     margin: 0 auto;
-//     // }
-// }
-// a:hover,
-// a:focus{
-
-//     color: $theme-yellow;
-//     background-color: black
-// }
-
-// a:active{
-//     color: red;
-// }
-
-// p{
-//     font-size: 1.2rem;
-//     line-height: 1.5rem;
-//     @media (min-width: 77.88em) {
-//         line-height: 2rem;
-//     }
-// }

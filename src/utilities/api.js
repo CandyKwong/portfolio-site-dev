@@ -1,10 +1,9 @@
 const BASEAPI = "https://candycreates.ca/portfolio-site/wp-json/wp/v2"
 
-// Function for each endpoints (media, pages, ...)
+
 
 function getMedia() {
-    // fetch(`${BASEAPI}/media`)
-    // return fetch(`https://candycreates.ca/portfolio-site/wp-json/wp/v2/media`)
+
     return fetch(`${BASEAPI}/media`)
     .then(response => {
         if (!response.ok) {

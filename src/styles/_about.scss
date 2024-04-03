@@ -1,7 +1,138 @@
-// styles.scss
+@use 'variables' as *;
+@use 'default' as *;
+
+.loading-portfolio-about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// .loading-portfolio-app{
+//     height: '100vh';
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 62.5rem;
+    margin: auto;
+    
+
+    .about-collage-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+
+        img{
+            width: 100%;
+            
+            margin: 0.50rem;
+        }
+    }
+    @media screen and (min-width: 710px){
+        .about-collage-section{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+
+          
+        }
+    }
+}
+
+.bio-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 62.5rem;
+    margin: auto;
+   
+
+    img{
+        width: 100%;
+        max-width: 100%;
+    }
+    @media screen and (min-width: $tablet-small){
+        .bio-wrapper img{
+            max-width: 80%;
+        }
+    }
+   
+} 
+.skills-title{
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+
+    h2{
+        margin-right: 14rem;
+    }
+}  
+.filter-section{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+
+    ul{
+        display: flex;
+        list-style: none;
+    }
+
+    li{
+        margin: 0 0.5rem;
+    }
+}
+.skills-container {
+  
+  }
+
+  .skills-container ul {
+    margin: 0.5rem;
+  }
+  
+  .facts-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    .facts-wrapper{
+        margin-bottom: 20px;
+
+            dl {
+                    border-bottom: 1px solid #ccc;
+                    padding: 10px 0;
+                  }
+                  
+                  dt {
+                    font-weight: bold;
+                    cursor: pointer; 
+                  }
+                  dt:hover{
+                    color: #D4B2A7;
+                  }
+                  
+                  dd {
+                    display: none; 
+                   
+                  }
+                  dd{
+                    display: block;
+                    
+                    margin: 1rem;
+                }
+    }
+
+  }
+
 
 .techstack-section {
-    // Styles for the filter buttons
+    margin: -1rem;
+    padding: 1rem;
+   
+   
     .filter-section {
       ul {
         list-style: none;
@@ -15,63 +146,70 @@
           margin-right: 10px;
           border: 1px solid #ccc;
           border-radius: 5px;
+          background-color: #E7D7C9;
   
           &.active {
-            background-color: #007bff;
+            background-color: #D4B2A7;
             color: white;
           }
         }
       }
     }
+
+       
   
-    // Styles for the skills container
+   
     .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+        box-shadow: rgba(212, 178, 167) 0px 5px 15px;
+        border-radius: 0.50rem;
       ul {
         list-style: none;
         padding: 0;
-        margin: 0;
+      
+        margin: 0.5rem;
   
         &.hidden {
           display: none;
+         
         }
   
         li {
           padding: 10px;
+          
           margin: 5px 0;
-          background-color: #f4f4f4;
+      
+          background-color: #E7D7C9;
           border: 1px solid #ccc;
-          border-radius: 5px;
+          border-radius: 0.50rem;
         }
       }
+     
     }
-  }
-  .facts-wrapper {
-    margin-bottom: 20px;
-  }
-  
-  dl {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-  }
-  
-  dt {
-    font-weight: bold;
-    cursor: pointer; /* Change cursor to indicate interaction */
-  }
-  
-  dd {
-    display: none; /* Hide answer by default */
-    padding-left: 20px;
-  }
-  
-  /* Show answer when hovering over question */
-  dt:hover + dd {
+    @media screen and (min-width: $desktop-small){
+        .skills-container{
+            margin: 1rem;
+        }
+      }
+
+dd{
     display: block;
-  }
-  
-  /* Style for answer when it's visible */
-  dd {
-    color: #333;
-  }
-  
+    margin: 1rem;
+}
+.about-collage-section{
+   display: flex;
+   justify-content: center;
+   margin: 1rem;
+
+   img{
+    width: 100%;
+    margin: 0.5rem;
+   }
+}
+
+}
+
   

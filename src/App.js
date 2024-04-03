@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import PageIndividualWork from "./pages/PageIndividualWork";
 import Loading from '../src/components/Loading';
 import { useState, useEffect } from "react";
+
 import './styles/styles.scss';
 
 function App(){
@@ -23,10 +24,10 @@ function App(){
     
   
     <>
-   {isLoading?
-   <Loading/>
+   {/* {isLoading?
+   <Loading pageName="app"/>
    
-   :
+   : */}
    <Router>
    <main id="main">
      <Header />
@@ -39,19 +40,8 @@ function App(){
    </main>
   <Footer/>
    </Router>
-  }
-      {/* <Router>
-      <main>
-        <Header />
-        <Routes>
-          <Route path='/' element={<PageHome/>}/>
-          <Route path='/about' element={<PageAbout/>}/>
-          <Route path='/works' element={<PageWorks/>}/>
-          <Route path='/individualworks' element={<PageIndividualWork/>}/>
-        </Routes>
-      </main>
-     <Footer/>
-      </Router> */}
+  
+     
    </>
   )
 }

@@ -1,101 +1,111 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { getWork, getMedia } from '../utilities/api';
 import { Link } from 'react-router-dom';
 
-
 const PageIndividualWork = () => {
-
     const [workData, setWorkData] = useState([]);
-    
     const [mediaData, setMediaData] = useState([]);
-    
-    const mediaWork = mediaData.find(data=>  (data.id === 165))?.source_url
-    const acfWorkData = workData?.acf;
-    const mediaHighlightImg = mediaData.find(data=>  (data.id === 210))?.source_url
-    
-    
+    const [expandWorkInfo, setExpandWorkInfo] = useState(null);
 
     useEffect(() => {
         getWork()
-        .then((data) => {
-            
-          setWorkData(data)
-        })
-        .catch((error)=>{
-          alert(error);
-        });
-      }, [])
+            .then((data) => {
+                setWorkData(data);
+            })
+            .catch((error) => {
+                alert(error);
+            });
+    }, []);
 
-      useEffect(() => {
+    useEffect(() => {
         getMedia()
-        .then((data) => {
-            setMediaData(data)
-        })
-        .catch((error)=>{
-            alert(error);
-        });
-        }, [])
+            .then((data) => {
+                setMediaData(data);
+            })
+            .catch((error) => {
+                alert(error);
+            });
+    }, []);
 
-    return(
+    const toggleWorkInfo = (sectionIndex) => {
+        setExpandWorkInfo(sectionIndex === expandWorkInfo ? null : sectionIndex);
+    };
+
+    return (
         <div className="individual-work-wrapper">
             <article className="indivdual-work-container">
                 <section className="work-overview-container">
                     <div className="mockup-screens">
-                        <img src={workData?.acf?.screens?.url} alt={workData?.acf?.screens?.alt}/>
+                        <img src={workData?.acf?.screens?.url} alt={workData?.acf?.screens?.alt} />
                     </div>
                     <div className="work-roles-toolkit">
-                        <h1>{acfWorkData?.works_title}</h1>
-                        <h2>{acfWorkData?.roles_title}</h2>
-                        <p>{acfWorkData?.roles}</p>
-                        <h2>{acfWorkData?.toolkit_title}</h2>
-                        <p>{acfWorkData?.toolkit}</p>
+                        <h1>{workData?.acf?.works_title}</h1>
+                        <div className="work-roles-toolkit-wrapper">
+                            <h2>{workData?.acf?.roles_title}</h2>
+                            <p>{workData?.acf?.roles}</p>
+                            <h2>{workData?.acf?.toolkit_title}</h2>
+                        <   p>{workData?.acf?.toolkit}</p>
+                        </div>
                     </div>
                     <div className="work-overview">
-                        <h3>{acfWorkData?.overview_title}</h3>
-                        <p>{acfWorkData?.overview}</p>
+                        <h3>{workData?.acf?.overview_title}</h3>
+                        <p>{workData?.acf?.overview}</p>
                     </div>
                     <div className="view-site-button">
-                        <Link to={acfWorkData?.works_url} target="_blank" rel="noopener noreferrer">View Live Site</Link>
+                        <Link to={workData?.acf?.works_url} target="_blank" rel="noopener noreferrer">
+                            View Live Site
+                        </Link>
                     </div>
                 </section>
-         
-            {/* <Link to={acfWorkData?.works_url} target="_blank" rel="noopener noreferrer">View Live Site</Link> */}
-            <div className="work-info-wrapper">
-                <div className="work-accordian">
-                    <section className="highlights-wrapper">
-                    <h3>{acfWorkData?.['highlights_title']}</h3>
-                    {acfWorkData && acfWorkData.highlights && acfWorkData.highlights.map((highlight, index) => (
-                    <div key={index}>
-                        <div className="highlights-img">
-                            <img src={highlight['highlight-image'].url} alt={highlight['highlight-image'].alt}/>
-                        </div>
-                        <div className="highlights-text">
-                            {/* <p>{highlight['highlight-text']}</p> */}
-                            <p dangerouslySetInnerHTML={{__html: highlight['highlight-text']}}></p>
-                        </div>
-                    
-                    
-                </div>
-            
-            ))}
-                        
-                    </section>
-            </div>
-                <div className="process-wrapper">
-                    <h3>{acfWorkData?.process_title}</h3>
-                    <p dangerouslySetInnerHTML={{__html:acfWorkData?.process}}></p>
-                </div>
-                <div className="reflection-wrapper">
-                    <h3>{acfWorkData?.reflection_title}</h3>
-                    <p dangerouslySetInnerHTML={{__html:acfWorkData?.reflection}}></p> 
-                </div>
+
+                <div className="work-info-wrapper">
+                    <div className="work-accordian">
+                        <section className="highlights-wrapper">
+                            <div className="work-accordian-title">
+                                <h3 onClick={() => toggleWorkInfo(0)}>{workData?.acf?.highlights_title}</h3>
+                            </div>
+                            {expandWorkInfo === 0 && (
+                                <div>
+                                    {workData?.acf?.highlights &&
+                                        workData.acf.highlights.map((highlight, index) => (
+                                            <div className="work-highlight"key={index}>
+                                                <div className="highlights-img">
+                                                    <img
+                                                        src={highlight['highlight-image']?.url}
+                                                        alt={highlight['highlight-image']?.alt}
+                                                    />
+                                                </div>
+                                                <div className="highlights-text">
+                                                    <p dangerouslySetInnerHTML={{ __html: highlight['highlight-text'] }}></p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                </div>
+                            )}
+                        </section>
+
+                        <section className="process-wrapper">
+                            <div className="work-accordian-title">
+                                <h3 onClick={() => toggleWorkInfo(1)}>{workData?.acf?.process_title}</h3>
+                            </div>
+                            {expandWorkInfo === 1 && (
+                                <p dangerouslySetInnerHTML={{ __html: workData?.acf?.process }}></p>
+                            )}
+                        </section>
+
+                        <section className="reflection-wrapper">
+                            <div className="work-accordian-title">
+                                <h3 onClick={() => toggleWorkInfo(2)}>{workData?.acf?.reflection_title}</h3>
+                            </div>
+                            {expandWorkInfo === 2 && (
+                                <p dangerouslySetInnerHTML={{ __html: workData?.acf?.reflection }}></p>
+                            )}
+                        </section>
+                    </div>
                 </div>
             </article>
         </div>
-            
-            
-            
-        // </div>
     );
-}
+};
+
 export default PageIndividualWork;

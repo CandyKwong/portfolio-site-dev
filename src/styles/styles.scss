@@ -4,8 +4,12 @@
 @use 'typography';
 @use 'header';
 @use 'nav';
+@use 'footer';
 
 
 //main
 @use 'home';
 @use 'about';
+@use 'works';
+@use 'individualwork';
+@use 'app';
