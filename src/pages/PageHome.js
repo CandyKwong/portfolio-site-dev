@@ -3,6 +3,7 @@ import { getMedia, getHome } from '../utilities/api';
 import React, {useEffect, useState, useRef} from 'react';
 import arrowRightIcon from '../assets/arrow-right.svg';
 import Loading from '../components/Loading';
+import arrowDownIcon from '../assets/down-arrow2.gif';
 
 
 
@@ -73,7 +74,7 @@ const PageHome = () => {
   </div>
 
     <div className="down-arrow-icon">
-    <img src={require('../assets/down-arrow2.gif')} alt="Down Arrow Icon" className="down-arrow-icon" onClick={scrollToSection} />
+    <img src={arrowDownIcon} alt="Down Arrow Icon" className="down-arrow-icon" onClick={scrollToSection} />
     </div>
 </section>
   

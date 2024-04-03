@@ -9,7 +9,6 @@ const PageWorks = () => {
       const [allWorksData, setAllWorksData] = useState([]);
       const [mediaData, setMediaData] = useState([]);
       const [isLoading, setIsLoading] = useState(true);
-
       const mediaAllWorks = mediaData.find(data=>  (data.id === 185))?.source_url
       
 

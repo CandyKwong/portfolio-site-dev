@@ -5,10 +5,11 @@ import PageAbout from "./pages/PageAbout";
 import PageWorks from "./pages/PageWorks";
 import Footer from "./components/Footer";
 import PageIndividualWork from "./pages/PageIndividualWork";
+import ScrollToTop from "./components/ScrollToTop";
 import Loading from '../src/components/Loading';
 import { useState, useEffect } from "react";
-
 import './styles/styles.scss';
+
 
 function App(){
   const[isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,7 @@ function App(){
    : */}
    <Router>
    <main id="main">
+    <ScrollToTop/>
      <Header />
      <Routes>
        <Route path='/' element={<PageHome/>}/>

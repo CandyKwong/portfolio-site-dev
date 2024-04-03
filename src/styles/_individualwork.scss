@@ -20,15 +20,21 @@
        
     }
 }
-    
-.mockup-screens img{
-    // max-width: 1000px;
-    width: 30rem;
-    border-radius: 0.50rem;
-
+.mockup-screens{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    
+
+    img{
+        // max-width: 1000px;
+        width: 32.25rem;
+        height: 25rem;
+    }
 }
+
+
     @media screen and (min-width: $tablet-large){
         .mockup-screens img{
             // margin: 1rem 4rem;
