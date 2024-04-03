@@ -28,26 +28,15 @@
     margin: auto;
 
     img{
-        // max-width: 1000px;
+       
         width: 32.25rem;
         height: 25rem;
     }
 }
 
-
-    @media screen and (min-width: $tablet-large){
-        .mockup-screens img{
-            // margin: 1rem 4rem;
-           
-        }
-    }
-
-
-
     .work-overview-container .work-roles-toolkit-wrapper{
         display: flex;
         align-items: center;
-        // gap: 3rem;
         justify-content: space-between;
        
     }
@@ -58,15 +47,11 @@
     }
     @media screen and (min-width: $tablet-large){
         .work-overview-container .work-roles-toolkit-wrapper{
-            // gap: 5rem;
             justify-content: space-around;
             
            
         }
     }
-
-
-
 
 .work-accordian{
     display: flex;
