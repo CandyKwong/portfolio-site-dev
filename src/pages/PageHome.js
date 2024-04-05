@@ -47,6 +47,22 @@ const PageHome = () => {
   const scrollToSection = () => {
     homeRef.current.scrollIntoView({behavior: 'smooth'});
   };
+    // Parallax effect logic
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.parallax');
+      parallaxElements.forEach((element) => {
+        const speed = parseFloat(element.getAttribute('data-speed'));
+        element.style.transform = `translateY(${scrollTop * speed}px)`;
+      });
+    };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
   
   
@@ -63,9 +79,9 @@ const PageHome = () => {
 <section className="self-intro-section"> 
   <div className="home-abovefold-wrapper">
     <div className="home-abovefold">
-      <h1>{homeData?.acf?.['self-introduction-one']}</h1>
-      <h2>{homeData?.acf?.['self-introduction-two']}</h2>
-      <h2>{homeData?.acf?.['self-introduction-three']}</h2>
+      <h1 className="fade-in-text">{homeData?.acf?.['self-introduction-one']}</h1>
+      <h2 className="fade-in-text">{homeData?.acf?.['self-introduction-two']}</h2>
+      <h2 className="fade-in-text">{homeData?.acf?.['self-introduction-three']}</h2>
     </div>
     
     <figure className="home-memoji">
@@ -79,10 +95,13 @@ const PageHome = () => {
 </section>
   
 
-<section className="featured-works-wrapper" ref={homeRef}>
-  <h3 className="featured-works-title">{homeData?.acf?.works_heading}</h3>
+{/* <section className="featured-works-wrapper" ref={homeRef}> */}
+ 
+    <h3 className="featured-works-title">{homeData?.acf?.works_heading}</h3>
+ 
 
-
+  <section className="featured-works-wrapper" ref={homeRef}>
+    {/* <h3 className="featured-works-title">{homeData?.acf?.works_heading}</h3> */}
   {featuredWorks && featuredWorks.map((featured_work, index)=>(
   <div key={index} className="featured-works">
     <article className="featured-works-cards">
@@ -107,10 +126,10 @@ const PageHome = () => {
   </div>
 
   ))}
-
-  
-  <a className="all-works-button"><Link to="/works">All Works</Link></a>
+   
   </section>
+  <a className="all-works-button"><Link to="/works">All Works</Link></a>
+  
   </div>
 
 }

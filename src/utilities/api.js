@@ -66,6 +66,18 @@ function getAllWorks(){
     throw error;
   });
 }
+function getSingleWork(id){
+  return fetch(`https://candycreates.ca/portfolio-site/wp-json/wp/v2/work/${id}?acf_format=standard`)
+  .then(response =>{
+    if(!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .catch(error=>{
+    throw error;
+  });
+}
 
 
 function getWork(){
@@ -91,4 +103,4 @@ function getSkill(){
   })
 }
 
-export { getMedia, getPage, getWork, getSkill, getHome, getAbout, getAllWorks};
+export { getMedia, getPage, getWork, getSkill, getHome, getAbout, getAllWorks, getSingleWork};

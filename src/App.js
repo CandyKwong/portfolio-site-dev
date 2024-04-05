@@ -37,7 +37,7 @@ function App(){
        <Route path='/' element={<PageHome/>}/>
        <Route path='/about' element={<PageAbout/>}/>
        <Route path='/works' element={<PageWorks/>}/>
-       <Route path='/individualworks' element={<PageIndividualWork/>}/>
+       <Route path='/individualworks/:id' element={<PageIndividualWork/>}/>
      </Routes>
    </main>
   <Footer/>

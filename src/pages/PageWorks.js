@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getPage, getMedia, getAllWorks } from '../utilities/api';
 import Loading from '../components/Loading';
 
@@ -11,6 +11,10 @@ const PageWorks = () => {
       const [isLoading, setIsLoading] = useState(true);
       const mediaAllWorks = mediaData.find(data=>  (data.id === 185))?.source_url
       
+      const params = useParams();
+      const id = params.id
+
+
 
       useEffect(() => {
         getMedia()
@@ -57,10 +61,16 @@ const PageWorks = () => {
                   <h2>{all_work.works_title}</h2>
                   <p>{all_work.toolkit}</p>
                 
-                  <a className="view-work-button" ><Link to="/individualworks">View Work</Link></a>
+                  {/* <a className="view-work-button" > */}
+                    {console.log(all_work.id)}
+                  <Link to={`/individualworks/${all_work.id}`}>View Work</Link>
+                  {/* <Link to={`/individualworks/${id}`}>View Work</Link> */}
+                  {/* <Link to={`/individualworks/`}>View Work</Link> */}
+                    {/* </a> */}
                 </div>
               </article>
             </div>   
+
             ))}
 
           

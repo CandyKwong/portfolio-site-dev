@@ -30,6 +30,11 @@
     margin: 1rem;
     padding: 1rem;
     width: 18rem;
+    height: 23rem;
+
+    .works-single-card-info{
+        margin: auto 0;
+    }
 
     img{
         width: 100%;
@@ -51,6 +56,7 @@
         transition: background-color 0.3s ease;
         cursor: pointer;
         margin: 0.25rem auto;
+        
     }
 }
 @media screen and (max-width: $mobile){

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getWork, getMedia } from '../utilities/api';
-import { Link } from 'react-router-dom';
+import { getWork, getMedia, getSingleWork } from '../utilities/api';
+import { Link, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 
 const PageIndividualWork = () => {
@@ -8,6 +8,11 @@ const PageIndividualWork = () => {
     const [mediaData, setMediaData] = useState([]);
     const [expandWorkInfo, setExpandWorkInfo] = useState(null);
     const[isLoading, setIsLoading] = useState(true);
+    const params = useParams();
+    const id = params.id
+
+    console.log('ID!!!', id)
+   
 
     useEffect(() => {
         getWork()
@@ -20,6 +25,8 @@ const PageIndividualWork = () => {
             });
     }, []);
 
+
+
     useEffect(() => {
         getMedia()
             .then((data) => {
@@ -30,6 +37,18 @@ const PageIndividualWork = () => {
                 alert(error);
             });
     }, []);
+
+    useEffect(() => {
+        getSingleWork(id)
+            .then((data) => {
+                console.log('SINGLE WORK', data)
+                setWorkData(data);
+                setIsLoading(false)
+            })
+            .catch((error) => {
+                alert(error);
+            });
+    }, [id]);
 
     const toggleWorkInfo = (sectionIndex) => {
         setExpandWorkInfo(sectionIndex === expandWorkInfo ? null : sectionIndex);
