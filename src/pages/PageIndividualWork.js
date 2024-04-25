@@ -121,8 +121,10 @@ const PageIndividualWork = () => {
                                 <h3 onClick={() => toggleWorkInfo(1)}>{workData?.acf?.process_title}</h3>
                             </div>
                             {expandWorkInfo === 1 && (
+                                
                                 <p dangerouslySetInnerHTML={{ __html: workData?.acf?.process }}></p>
                             )}
+                                
                         </section>
 
                         <section className="reflection-wrapper">

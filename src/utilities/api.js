@@ -57,6 +57,7 @@ function getAbout(){
 function getAllWorks(){
   return fetch(`https://candycreates.ca/portfolio-site/wp-json/wp/v2/pages/13?acf_format=standard`)
   .then(response =>{
+   
     if(!response.ok){
       throw new Error("Network response was not ok");
     }

@@ -30,16 +30,16 @@ const PageWorks = () => {
       }, [])
 
 
-      useEffect(() => {
-        getAllWorks()
-        .then((data) => {
-          setAllWorksData(data)
-          setIsLoading(false)
-        })
-        .catch((error)=>{
-          alert(error);
-        });
-      }, [])
+      // useEffect(() => {
+      //   getAllWorks()
+      //   .then((data) => {
+      //     setAllWorksData(data)
+      //     setIsLoading(false)
+      //   })
+      //   .catch((error)=>{
+      //     alert(error);
+      //   });
+      // }, [])
 
       useEffect(() => {
         getAllProjects()
@@ -57,7 +57,8 @@ const PageWorks = () => {
 
       // const allWorksData1 = allWorksData?.[1]?.acf;
       const allWorksData1 = allProjects?.[1]?.acf;
-      console.log("hi", mediaData)
+     
+      // console.log("hi", mediaData)
       // const allWorks = allWorksData?.acf?.all_works;
       
       // const projectID = allProjects?.[0]?.acf?.id
@@ -81,7 +82,8 @@ const PageWorks = () => {
                 {/* GEt media, remove your console logs */}
                 {/* <img src={allWork?.guid?.rendered} alt={'eheh'}/> */}
 
-                {/* <img src={all_work.works_image.url} alt={all_work.works_image.alt}/> */}
+                {/*  */}
+               
                 {/*insert images REST API here*/}
 
                 {mediaData.map((media) => (

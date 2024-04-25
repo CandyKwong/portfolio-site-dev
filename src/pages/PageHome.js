@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getMedia, getHome} from '../utilities/api';
+import { getMedia, getHome, getAllProjects} from '../utilities/api';
 import React, {useEffect, useState, useRef} from 'react';
 import arrowRightIcon from '../assets/arrow-right.svg';
 import Loading from '../components/Loading';
@@ -17,7 +17,7 @@ const PageHome = () => {
   const featuredWorks = homeData?.acf?.featured_works;
   const[isLoading, setIsLoading] = useState(true);
   const homeRef = useRef(null);
-  // const [allProjects, setAllProjects] = useState([]);
+  const [allProjects, setAllProjects] = useState([]);
   // const [allWorksData, setAllWorksData] = useState([]);
 
 
@@ -46,16 +46,16 @@ const PageHome = () => {
     });
   }, [])
 
-  // useEffect(() => {
-  //   getAllProjects()
-  //     .then((data) => {
-  //       setAllProjects(data);
-  //       setIsLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       alert(error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    getAllProjects()
+      .then((data) => {
+        setAllProjects(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
 
   // useEffect(() => {
   //   getAllWorks()
@@ -139,14 +139,14 @@ const PageHome = () => {
             <li>{featured_work.works_toolkit}</li>
           </ul>
        
-          <Link to="/individualworks" className="right-arrow-icon">
+          {/* <Link to="/individualworks" className="right-arrow-icon">
             <img src={arrowRightIcon} alt="Arrow Right Icon"/>
             
-          </Link>
-
-          {/* <Link to={`/individualworks/${allWork?.id}`} className="right-arrow-icon">
-            <img src={arrowRightIcon} alt="Arrow Right Icon"/>
           </Link> */}
+
+          <Link to={`/individualworks/${featured_work.id}`} className="right-arrow-icon">
+            <img src={arrowRightIcon} alt="Arrow Right Icon"/>
+          </Link>
 
         </div>
       </div>
