@@ -52,20 +52,10 @@ const PageWorks = () => {
           alert(error);
         });
       }, [])
-
-
-
-      // const allWorksData1 = allWorksData?.[1]?.acf;
+      
+      
       const allWorksData1 = allProjects?.[1]?.acf;
-     
-      // console.log("hi", mediaData)
-      // const allWorks = allWorksData?.acf?.all_works;
-      
-      // const projectID = allProjects?.[0]?.acf?.id
-      // console.log('Project ID', allProjects?.[0]?.id)
-
-      
-  
+    
     return(
       <>
       {isLoading? 
@@ -75,39 +65,30 @@ const PageWorks = () => {
         <div class="works-wrapper">
             <h1>All Works</h1>
 
-            {allProjects && allProjects.map(allWork=>(
-            <div className="works-cards">
+            {allProjects.map(allWork=>(
+             
+            <div className="works-cards" key={allWork.id}>
             
               <article className="works-single-card">
-                {/* GEt media, remove your console logs */}
-                {/* <img src={allWork?.guid?.rendered} alt={'eheh'}/> */}
-
-                {/*  */}
-               
-                {/*insert images REST API here*/}
+             
 
                 {mediaData.map((media) => (
-                                    allWork?.acf?.works_image &&
-                                    media.id === allWork?.acf?.works_image.id && (
+                                    allWork.acf.screens &&
+                                    media.id === allWork.acf.screens && (
                                         <img
-                                            src={media.source_url}
-                                            alt={allWork?.acf?.works_image.alt}
-                                            
-                                            key={media.id}
+                                          src={media.source_url}
+                                          alt={media.alt_text}
+                                          key={media.id}
                                         />
                                     )
                                 ))}
+              
 
                                 
                 <div className="works-single-card-info">
-                   <h2>{allWork?.acf?.works_title}</h2> 
-                  <p>{allWork?.acf?.toolkit}</p>
-                
-                  {/* <a className="view-work-button" > */}
-
-                  <Link to={`/individualworks/${allWork?.id}`}>View Work</Link>
-                
-                    {/* </a> */}
+                   <h2>{allWork.acf.works_title}</h2> 
+                  <p>{allWork.acf.toolkit}</p>
+                  <Link to={`/individualworks/${allWork.id}`}>View Work</Link>
                 </div>
               </article>
             </div>   

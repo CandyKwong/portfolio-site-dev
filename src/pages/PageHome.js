@@ -18,7 +18,7 @@ const PageHome = () => {
   const[isLoading, setIsLoading] = useState(true);
   const homeRef = useRef(null);
   const [allProjects, setAllProjects] = useState([]);
-  // const [allWorksData, setAllWorksData] = useState([]);
+  
 
 
   useEffect(() => {
@@ -57,16 +57,11 @@ const PageHome = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   getAllWorks()
-  //   .then((data) => {
-  //     setAllWorksData(data)
-  //     setIsLoading(false)
-  //   })
-  //   .catch((error)=>{
-  //     alert(error);
-  //   });
-  // }, [])
+  
+
+  const getProjId = (title) => {
+    return allProjects.find((proj) => title.includes(proj.acf.works_title))?.id;
+};
 
   const scrollToSection = () => {
     homeRef.current.scrollIntoView({behavior: 'smooth'});
@@ -119,43 +114,44 @@ const PageHome = () => {
 </section>
   
 
-{/* <section className="featured-works-wrapper" ref={homeRef}> */}
+
  
     <h3 className="featured-works-title">{homeData?.acf?.works_heading}</h3>
  
 
   <section className="featured-works-wrapper" ref={homeRef}>
-    {/* <h3 className="featured-works-title">{homeData?.acf?.works_heading}</h3> */}
-  {featuredWorks && featuredWorks.map((featured_work, index)=>(
-  <div key={index} className="featured-works">
-    <article className="featured-works-cards">
-      <div className="featured-works-macbook">
-        <img src={featured_work.works_image.url} alt={featured_work.works_image.alt}/>
+    
+  {featuredWorks &&
+   featuredWorks.map((featured_work, index)=>{
+    const projectId = getProjId(featured_work?.works_title);
+
+    return (
+      <div key={index} className="featured-works">
+        <article className="featured-works-cards">
+          <div className="featured-works-macbook">
+            <img src={featured_work.works_image.url} alt={featured_work.works_image.alt}/>
+          </div>
+          <div className="featured-works-info">
+            <div className="featured-works-content">
+              <h4>{featured_work.works_title}</h4>
+              <ul>
+                <li>{featured_work.works_toolkit}</li>
+              </ul>
+          
+
+              <Link to={`/individualworks/${projectId}`} className="right-arrow-icon">
+                <img src={arrowRightIcon} alt="Arrow Right Icon"/>
+              </Link>
+
+            </div>
+          </div>
+        </article>
+
+      
       </div>
-      <div className="featured-works-info">
-        <div className="featured-works-content">
-          <h4>{featured_work.works_title}</h4>
-          <ul>
-            <li>{featured_work.works_toolkit}</li>
-          </ul>
-       
-          {/* <Link to="/individualworks" className="right-arrow-icon">
-            <img src={arrowRightIcon} alt="Arrow Right Icon"/>
-            
-          </Link> */}
+   );
 
-          <Link to={`/individualworks/${featured_work.id}`} className="right-arrow-icon">
-            <img src={arrowRightIcon} alt="Arrow Right Icon"/>
-          </Link>
-
-        </div>
-      </div>
-    </article>
-
-  
-  </div>
-
-  ))}
+  })}
    
   </section>
   <a className="all-works-button"><Link to="/works">All Works</Link></a>
