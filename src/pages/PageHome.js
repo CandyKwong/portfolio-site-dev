@@ -6,14 +6,11 @@ import Loading from '../components/Loading';
 import arrowDownIcon from '../assets/down-arrow2.gif';
 
 
-
 const PageHome = () => {
   
   //Fetch data from API endpoint 
   const [homeData, setHomeData] = useState([]);
   const [mediaData, setMediaData] = useState([])
-  const mediaSrc = mediaData.find(data=>  (data.id === 213))?.source_url
-  const mediaHome = mediaData.find(data=>  (data.id === 185))?.source_url
   const featuredWorks = homeData?.acf?.featured_works;
   const[isLoading, setIsLoading] = useState(true);
   const homeRef = useRef(null);

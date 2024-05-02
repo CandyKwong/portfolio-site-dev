@@ -10,10 +10,7 @@ const PageIndividualWork = () => {
     const[isLoading, setIsLoading] = useState(true);
     const params = useParams();
     const id = params.id
-
-    console.log('ID!!!', id)
-   
-
+    
     useEffect(() => {
         getWork(id)
             .then((data) => {

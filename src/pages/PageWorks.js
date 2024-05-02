@@ -1,17 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getPage, getMedia, getAllWorks, getAllProjects} from '../utilities/api';
+import { getMedia, getAllProjects} from '../utilities/api';
 import Loading from '../components/Loading';
 
 const PageWorks = () => {
 
       //Fetch data from API endpoint
-      const [allWorksData, setAllWorksData] = useState([]);
       const [allProjects, setAllProjects] = useState([])
       const [mediaData, setMediaData] = useState([]);
       const [isLoading, setIsLoading] = useState(true);
-      const mediaAllWorks = mediaData.find(data=>  (data.id === 185))?.source_url
-      
       const params = useParams();
       const id = params.id
 
@@ -20,7 +17,6 @@ const PageWorks = () => {
       useEffect(() => {
         getMedia()
         .then((data) => {
-          console.log("MEDIA DATA ON WORKS PAGE", data)
           setMediaData(data)
           setIsLoading(false)
         })
@@ -28,18 +24,6 @@ const PageWorks = () => {
           alert(error);
         });
       }, [])
-
-
-      // useEffect(() => {
-      //   getAllWorks()
-      //   .then((data) => {
-      //     setAllWorksData(data)
-      //     setIsLoading(false)
-      //   })
-      //   .catch((error)=>{
-      //     alert(error);
-      //   });
-      // }, [])
 
       useEffect(() => {
         getAllProjects()
